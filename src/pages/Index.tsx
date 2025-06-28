@@ -7,11 +7,12 @@ import PlansPage from '@/components/PlansPage';
 import KitDetailsPage from '@/components/KitDetailsPage';
 import SubscriptionDetailsPage from '@/components/SubscriptionDetailsPage';
 import PaymentForm from '@/components/PaymentForm';
+import MonitoringPage from '@/components/MonitoringPage';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { LogOut, User } from 'lucide-react';
+import { LogOut, User, Activity } from 'lucide-react';
 
-type AppState = 'login' | 'register' | 'plans' | 'kit-details' | 'subscription-details' | 'kit-payment' | 'subscription-payment' | 'success';
+type AppState = 'login' | 'register' | 'plans' | 'kit-details' | 'subscription-details' | 'kit-payment' | 'subscription-payment' | 'success' | 'monitoring';
 
 const MainApp = () => {
   const { user, logout } = useAuth();
@@ -81,6 +82,12 @@ const MainApp = () => {
             onSuccess={() => setCurrentState('success')}
           />
         );
+      case 'monitoring':
+        return (
+          <MonitoringPage
+            onBack={() => setCurrentState('login')}
+          />
+        );
       case 'success':
         return (
           <div className="min-h-screen bg-almost-black flex items-center justify-center p-6">
@@ -138,12 +145,21 @@ const MainApp = () => {
                   <p className="text-gray-blue text-lg">
                     Protege lo que más importa con nuestra tecnología de vanguardia
                   </p>
-                  <Button
-                    onClick={() => setCurrentState('plans')}
-                    className="bg-plum-dark hover:bg-plum-dark/80 text-sky-soft px-8 py-3 text-lg"
-                  >
-                    Ver Planes Disponibles
-                  </Button>
+                  <div className="flex gap-4 justify-center">
+                    <Button
+                      onClick={() => setCurrentState('plans')}
+                      className="bg-plum-dark hover:bg-plum-dark/80 text-sky-soft px-8 py-3 text-lg"
+                    >
+                      Ver Planes Disponibles
+                    </Button>
+                    <Button
+                      onClick={() => setCurrentState('monitoring')}
+                      className="bg-blue-deep hover:bg-blue-deep/80 text-sky-soft px-8 py-3 text-lg"
+                    >
+                      <Activity className="w-5 h-5 mr-2" />
+                      Monitorear Forraje Hidropónico
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
 
