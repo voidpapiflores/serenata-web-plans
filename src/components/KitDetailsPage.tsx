@@ -41,24 +41,40 @@ const KitDetailsPage: React.FC<KitDetailsPageProps> = ({ onProceed, onBack }) =>
             <CardContent>
               <div className="space-y-4">
                 <div className="flex justify-between items-center p-3 bg-almost-black/50 rounded-lg">
-                  <span className="text-sky-soft">Unidad Principal</span>
+                  <span className="text-sky-soft">ESP32</span>
                   <span className="text-gray-blue">x1</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-almost-black/50 rounded-lg">
-                  <span className="text-sky-soft">Sensores de Movimiento</span>
-                  <span className="text-gray-blue">x4</span>
-                </div>
-                <div className="flex justify-between items-center p-3 bg-almost-black/50 rounded-lg">
-                  <span className="text-sky-soft">Cámaras de Seguridad</span>
-                  <span className="text-gray-blue">x2</span>
-                </div>
-                <div className="flex justify-between items-center p-3 bg-almost-black/50 rounded-lg">
-                  <span className="text-sky-soft">Panel de Control</span>
+                  <span className="text-sky-soft">Sensor de Temperatura</span>
                   <span className="text-gray-blue">x1</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-almost-black/50 rounded-lg">
-                  <span className="text-sky-soft">Cables y Accesorios</span>
+                  <span className="text-sky-soft">Sensor de Humedad</span>
+                  <span className="text-gray-blue">x1</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-almost-black/50 rounded-lg">
+                  <span className="text-sky-soft">Módulo L298N</span>
+                  <span className="text-gray-blue">x1</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-almost-black/50 rounded-lg">
+                  <span className="text-sky-soft">Módulo Relé</span>
+                  <span className="text-gray-blue">x1</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-almost-black/50 rounded-lg">
+                  <span className="text-sky-soft">Tubos PVC</span>
                   <span className="text-gray-blue">Kit completo</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-almost-black/50 rounded-lg">
+                  <span className="text-sky-soft">Ventiladores</span>
+                  <span className="text-gray-blue">Kit completo</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-almost-black/50 rounded-lg">
+                  <span className="text-sky-soft">Termoventiladores</span>
+                  <span className="text-gray-blue">Kit completo</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-almost-black/50 rounded-lg">
+                  <span className="text-sky-soft">Fuente de Voltaje</span>
+                  <span className="text-gray-blue">x1</span>
                 </div>
               </div>
             </CardContent>
@@ -92,16 +108,16 @@ const KitDetailsPage: React.FC<KitDetailsPageProps> = ({ onProceed, onBack }) =>
                   <div className="space-y-2">
                     <div className="flex justify-between">
                       <span className="text-gray-blue">Kit Completo:</span>
-                      <span className="text-sky-soft font-semibold">$2,499 USD</span>
+                      <span className="text-sky-soft font-semibold">1,210 Bs</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-blue">Instalación:</span>
-                      <span className="text-sky-soft font-semibold">$299 USD</span>
+                      <span className="text-sky-soft font-semibold">200 Bs</span>
                     </div>
                     <div className="border-t border-gray-blue/30 pt-2">
                       <div className="flex justify-between">
                         <span className="text-sky-soft font-bold">Total:</span>
-                        <span className="text-sky-soft font-bold text-xl">$2,798 USD</span>
+                        <span className="text-sky-soft font-bold text-xl">1,410 Bs</span>
                       </div>
                     </div>
                   </div>

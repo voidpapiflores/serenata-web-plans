@@ -439,7 +439,7 @@ const MonitoringPage: React.FC<MonitoringPageProps> = ({ onBack }) => {
   }
 
   return (
-    <div className="min-h-screen bg-almost-black p-4">
+    <div className="min-h-screen bg-white p-4">
       <div className="max-w-7xl mx-auto">
         <div className="mb-6">
           <Button
@@ -450,23 +450,23 @@ const MonitoringPage: React.FC<MonitoringPageProps> = ({ onBack }) => {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Volver
           </Button>
-          <h1 className="text-3xl font-bold text-sky-soft mb-4">
+          <h1 className="text-3xl font-bold text-almost-black mb-4">
             Monitoreo de Forraje Hidropónico
           </h1>
         </div>
 
         {invernaderos.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-sky-soft text-lg">No se encontraron invernaderos en la base de datos.</p>
+            <p className="text-almost-black text-lg">No se encontraron invernaderos en la base de datos.</p>
           </div>
         ) : (
           <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
-            <TabsList className="grid w-full grid-cols-4 mb-6 bg-blue-deep">
+            <TabsList className="grid w-full grid-cols-4 mb-6 bg-gray-100">
               {invernaderos.map((invernadero, index) => (
                 <TabsTrigger 
                   key={index} 
                   value={index.toString()}
-                  className="text-sm font-medium text-sky-soft data-[state=active]:bg-gray-blue data-[state=active]:text-almost-black"
+                  className="text-sm font-medium text-almost-black data-[state=active]:bg-blue-deep data-[state=active]:text-white"
                 >
                   {invernadero.nombre}
                 </TabsTrigger>
@@ -475,35 +475,35 @@ const MonitoringPage: React.FC<MonitoringPageProps> = ({ onBack }) => {
 
             {invernaderos.map((invernadero, index) => (
               <TabsContent key={index} value={index.toString()}>
-                <div className="bg-blue-deep rounded-lg p-6 shadow-lg border border-plum-dark">
+                <div className="bg-gray-50 rounded-lg p-6 shadow-lg border border-gray-200">
                   {/* Indicadores LED de Motores */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                    <div className="bg-plum-dark p-4 rounded-lg text-center border border-gray-blue">
-                      <h3 className="text-lg font-semibold text-sky-soft mb-3">Motor 1</h3>
+                    <div className="bg-white p-4 rounded-lg text-center border border-gray-300 shadow-sm">
+                      <h3 className="text-lg font-semibold text-almost-black mb-3">Motor 1</h3>
                       <div className="flex items-center justify-center space-x-2">
                         <div 
                           className={`w-8 h-8 rounded-full ${
                             (invernadero.latestData?.motor1pwm || 0) > 0 
                               ? 'bg-green-500 shadow-lg shadow-green-300 animate-pulse' 
-                              : 'bg-gray-500'
+                              : 'bg-gray-400'
                           }`}
                         ></div>
-                        <span className="text-sm text-gray-blue">
+                        <span className="text-sm text-gray-600">
                           {(invernadero.latestData?.motor1pwm || 0) > 0 ? 'Encendido' : 'Apagado'}
                         </span>
                       </div>
                     </div>
-                    <div className="bg-plum-dark p-4 rounded-lg text-center border border-gray-blue">
-                      <h3 className="text-lg font-semibold text-sky-soft mb-3">Motor 2</h3>
+                    <div className="bg-white p-4 rounded-lg text-center border border-gray-300 shadow-sm">
+                      <h3 className="text-lg font-semibold text-almost-black mb-3">Motor 2</h3>
                       <div className="flex items-center justify-center space-x-2">
                         <div 
                           className={`w-8 h-8 rounded-full ${
                             (invernadero.latestData?.motor2pwm || 0) > 0 
                               ? 'bg-green-500 shadow-lg shadow-green-300 animate-pulse' 
-                              : 'bg-gray-500'
+                              : 'bg-gray-400'
                           }`}
                         ></div>
-                        <span className="text-sm text-gray-blue">
+                        <span className="text-sm text-gray-600">
                           {(invernadero.latestData?.motor2pwm || 0) > 0 ? 'Encendido' : 'Apagado'}
                         </span>
                       </div>
@@ -511,33 +511,33 @@ const MonitoringPage: React.FC<MonitoringPageProps> = ({ onBack }) => {
                   </div>
 
                   {/* Contador de días de crecimiento */}
-                  <div className="bg-gradient-to-r from-plum-dark to-gray-blue p-6 rounded-lg mb-8 text-center border border-sky-soft">
-                    <h3 className="text-2xl font-bold text-sky-soft mb-2">Días de Crecimiento</h3>
-                    <div className="text-4xl font-bold text-green-400">
+                  <div className="bg-gradient-to-r from-blue-100 to-blue-200 p-6 rounded-lg mb-8 text-center border border-blue-300 shadow-sm">
+                    <h3 className="text-2xl font-bold text-almost-black mb-2">Días de Crecimiento</h3>
+                    <div className="text-4xl font-bold text-green-600">
                       {calculateDaysGrowth(invernadero.latestData?.t || null)}
                     </div>
-                    <p className="text-gray-blue mt-2">días desde el inicio</p>
+                    <p className="text-gray-600 mt-2">días desde el inicio</p>
                   </div>
 
                   {/* Gauges - Larger and more attractive */}
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
                     <div className="text-center">
-                      <div className="w-48 h-48 mx-auto bg-plum-dark rounded-lg p-4 border border-gray-blue">
+                      <div className="w-48 h-48 mx-auto bg-white rounded-lg p-4 border border-gray-300 shadow-sm">
                         <canvas id={`temp-gauge-${index}`} className="w-full h-full"></canvas>
                       </div>
                     </div>
                     <div className="text-center">
-                      <div className="w-48 h-48 mx-auto bg-plum-dark rounded-lg p-4 border border-gray-blue">
+                      <div className="w-48 h-48 mx-auto bg-white rounded-lg p-4 border border-gray-300 shadow-sm">
                         <canvas id={`hum-gauge-${index}`} className="w-full h-full"></canvas>
                       </div>
                     </div>
                     <div className="text-center">
-                      <div className="w-48 h-48 mx-auto bg-plum-dark rounded-lg p-4 border border-gray-blue">
+                      <div className="w-48 h-48 mx-auto bg-white rounded-lg p-4 border border-gray-300 shadow-sm">
                         <canvas id={`ph-gauge-${index}`} className="w-full h-full"></canvas>
                       </div>
                     </div>
                     <div className="text-center">
-                      <div className="w-48 h-48 mx-auto bg-plum-dark rounded-lg p-4 border border-gray-blue">
+                      <div className="w-48 h-48 mx-auto bg-white rounded-lg p-4 border border-gray-300 shadow-sm">
                         <canvas id={`alt-gauge-${index}`} className="w-full h-full"></canvas>
                       </div>
                     </div>
@@ -545,12 +545,12 @@ const MonitoringPage: React.FC<MonitoringPageProps> = ({ onBack }) => {
 
                   {/* Gráficas de dispersión */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <div className="bg-plum-dark rounded-lg p-4 border border-gray-blue">
+                    <div className="bg-white rounded-lg p-4 border border-gray-300 shadow-sm">
                       <div className="h-64">
                         <canvas id={`scatter1-${index}`} className="w-full h-full"></canvas>
                       </div>
                     </div>
-                    <div className="bg-plum-dark rounded-lg p-4 border border-gray-blue">
+                    <div className="bg-white rounded-lg p-4 border border-gray-300 shadow-sm">
                       <div className="h-64">
                         <canvas id={`scatter2-${index}`} className="w-full h-full"></canvas>
                       </div>
@@ -564,14 +564,14 @@ const MonitoringPage: React.FC<MonitoringPageProps> = ({ onBack }) => {
 
         {/* Gráficos de torta */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
-          <div className="bg-blue-deep p-6 rounded-lg shadow-lg text-center border border-plum-dark">
-            <h3 className="text-xl font-semibold text-sky-soft mb-4">Distribución Energía</h3>
+          <div className="bg-gray-50 p-6 rounded-lg shadow-lg text-center border border-gray-200">
+            <h3 className="text-xl font-semibold text-almost-black mb-4">Distribución Energía</h3>
             <div className="h-64">
               <canvas id="pieChart1" className="w-full h-full"></canvas>
             </div>
           </div>
-          <div className="bg-blue-deep p-6 rounded-lg shadow-lg text-center border border-plum-dark">
-            <h3 className="text-xl font-semibold text-sky-soft mb-4">Estado Motores</h3>
+          <div className="bg-gray-50 p-6 rounded-lg shadow-lg text-center border border-gray-200">
+            <h3 className="text-xl font-semibold text-almost-black mb-4">Estado Motores</h3>
             <div className="h-64">
               <canvas id="pieChart2" className="w-full h-full"></canvas>
             </div>
