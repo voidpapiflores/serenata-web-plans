@@ -43,11 +43,6 @@ const PlansPage: React.FC<PlansPageProps> = ({ onSelectSubscription, onSelectKit
               </CardDescription>
             </CardHeader>
             <CardContent className="pt-4">
-              <div className="bg-gray-blue/10 rounded-lg p-6 mb-6 min-h-[200px] flex items-center justify-center border-2 border-dashed border-gray-blue/30">
-                <p className="text-gray-blue text-center">
-                  Espacio para imagen de suscripción
-                </p>
-              </div>
               <div className="space-y-4 mb-6">
                 <div className="flex items-center justify-between">
                   <span className="text-sky-soft">✓ Servicios mensuales</span>
@@ -82,11 +77,6 @@ const PlansPage: React.FC<PlansPageProps> = ({ onSelectSubscription, onSelectKit
               </CardDescription>
             </CardHeader>
             <CardContent className="pt-4">
-              <div className="bg-gray-blue/10 rounded-lg p-6 mb-6 min-h-[200px] flex items-center justify-center border-2 border-dashed border-gray-blue/30">
-                <p className="text-gray-blue text-center">
-                  Espacio para imagen de kit
-                </p>
-              </div>
               <div className="space-y-4 mb-6">
                 <div className="flex items-center justify-between">
                   <span className="text-sky-soft">✓ Kit completo incluido</span>
