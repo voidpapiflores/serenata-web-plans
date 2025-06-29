@@ -9,30 +9,39 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      Data_tr: {
+      dat: {
         Row: {
-          ciclo_id: number
-          humedad_input: number | null
-          motor1_pwm: number | null
-          motor2_pwm: number | null
+          altura: string | null
+          cicloid: number
+          humedadinput: number | null
+          motor1pwm: number | null
+          motor2pwm: number | null
           nombre: number | null
+          ph: string | null
           t: string | null
+          temperaturainput: string | null
         }
         Insert: {
-          ciclo_id: number
-          humedad_input?: number | null
-          motor1_pwm?: number | null
-          motor2_pwm?: number | null
+          altura?: string | null
+          cicloid: number
+          humedadinput?: number | null
+          motor1pwm?: number | null
+          motor2pwm?: number | null
           nombre?: number | null
+          ph?: string | null
           t?: string | null
+          temperaturainput?: string | null
         }
         Update: {
-          ciclo_id?: number
-          humedad_input?: number | null
-          motor1_pwm?: number | null
-          motor2_pwm?: number | null
+          altura?: string | null
+          cicloid?: number
+          humedadinput?: number | null
+          motor1pwm?: number | null
+          motor2pwm?: number | null
           nombre?: number | null
+          ph?: string | null
           t?: string | null
+          temperaturainput?: string | null
         }
         Relationships: []
       }
